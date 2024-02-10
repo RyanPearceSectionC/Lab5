@@ -1,0 +1,132 @@
+/*
+-- TASK REMINDER FOR ME AND ME ALONE --
+1. Create a header + nav that follows the top of the view (sticky).
+2. Create cards for music albums complete with image and album title and band.
+3. Create audio files of each song.
+4. Have an image alert of an upcoming event.
+*/
+
+:root{
+    --fadeSpeed: 0.5s;
+    --headerFadeInMargin: 2%;
+    --headerFadeOutMargin: 3%;
+    --cardBodyPadding: 2.5%;
+}
+
+*{
+    color:white;
+    font-family: 'Protest Riot', serif;
+}
+
+body {
+    background-color: rgb(30, 30, 30);
+}
+
+/*-- Hover Fade 'Animation' --*/
+@keyframes headerHoverFadeInAnim {
+    from {
+        background-color: rgba(50, 50, 50, 0.3);
+        color: rgba(255, 255, 255, 0.1);
+        margin-left: var(--headerFadeOutMargin);
+        margin-right: var(--headerFadeOutMargin);
+    }
+    to {
+        background-color: rgba(50, 50, 50, 255);
+        color: rgba(255, 255, 255, 255);
+        margin-left: var(--headerFadeInMargin);
+        margin-right: var(--headerFadeInMargin);
+    }
+}
+@keyframes headerHoverFadeOutAnim {
+    from {
+        background-color: rgba(50, 50, 50, 255);
+        color: rgba(255, 255, 255, 255);
+        margin-left: var(--headerFadeInMargin);
+        margin-right: var(--headerFadeInMargin);
+    }
+    to {
+        background-color: rgba(50, 50, 50, 0.3);
+        color: rgba(255, 255, 255, 0.1);
+        margin-left: var(--headerFadeOutMargin);
+        margin-right: var(--headerFadeOutMargin);
+    }
+}
+
+header{
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+    position:sticky;
+    top: 5px;
+    margin-top: 1%;
+    margin-left: var(--headerFadeOutMargin);
+    margin-right: var(--headerFadeOutMargin);
+    background-color: rgba(50, 50, 50, 0.3);
+    color: rgba(255, 255, 255, 0.1);
+
+    animation-name: headerHoverFadeOutAnim;
+    animation-duration: var(--fadeSpeed);
+}
+header:hover{
+    animation-name: headerHoverFadeInAnim;
+    animation-duration: var(--fadeSpeed);
+
+    background-color: rgba(50, 50, 50, 255);
+    color: rgba(255, 255, 255, 255);
+
+    margin-left: var(--headerFadeInMargin);
+    margin-right: var(--headerFadeInMargin);
+}
+header:after{
+    background-color: var(--websiteStarted, 1)
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 200px;
+    text-align: center;
+    color: white;
+}
+
+body{
+    padding: 0;
+    margin: auto;
+}
+
+.card-container {
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.card-body{
+    justify-content: center;
+    flex-direction: column;
+    columns: 1;
+
+    background-color: rgb(20, 20, 20);
+    color: white;
+
+    padding-left: var(--cardBodyPadding);
+    padding-right: var(--cardBodyPadding);
+    margin: 1%;
+}
+
+.card-album::before{
+    content: "Album: ";
+}
+.card-auth::before{
+    content: "Band/Author: ";
+}
+
+footer{
+    padding: 0;
+    margin: auto;
+}
+
+
+/*-- Mobile and Tablet Only --*/
+@media screen and (max-width: 450px) and (max-height: 800px){
+
+}
