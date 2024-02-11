@@ -6,16 +6,31 @@
 4. Have an image alert of an upcoming event.
 */
 
-:root{
+/*-- Mobile and Tablet Only --*/
+:root {
     --fadeSpeed: 0.5s;
-    --headerFadeInMargin: 2%;
+    --headerFadeInMargin: 1%;
     --headerFadeOutMargin: 3%;
-    --cardBodyPadding: 2.5%;
+    --cardArtistBodyPadding: 1%;
+    --cardSongBodyPadding: 2%;
+    --imageW: 400px;
+    --imageH: 400px;
+}
+
+@media screen and (max-width: 450px) and (max-height: 800px){
+    :root {
+        --fadeSpeed: 0.5s;
+        --headerFadeInMargin: 1%;
+        --headerFadeOutMargin: 3%;
+        --cardBodyPadding: 5%;
+        --imageW: 200px;
+        --imageH: 200px;
+    }
 }
 
 *{
     color:white;
-    font-family: 'Protest Riot', serif;
+    font-family: 'Bebas Neue', serif;
 }
 
 body {
@@ -57,10 +72,11 @@ header{
     justify-self: center;
     justify-content: space-between;
     position:sticky;
-    top: 5px;
+    top: 2%;
     margin-top: 1%;
     margin-left: var(--headerFadeOutMargin);
     margin-right: var(--headerFadeOutMargin);
+    padding: 0%;
     background-color: rgba(50, 50, 50, 0.3);
     color: rgba(255, 255, 255, 0.1);
 
@@ -74,16 +90,28 @@ header:hover{
     background-color: rgba(50, 50, 50, 255);
     color: rgba(255, 255, 255, 255);
 
+    margin-top: 1%;
     margin-left: var(--headerFadeInMargin);
     margin-right: var(--headerFadeInMargin);
 }
-header:after{
-    background-color: var(--websiteStarted, 1)
+.header-title-container{
+    margin-left: 49%;
+    padding: 0%;
+}
+.header-title{
+    font-size: 60px;
+    text-align:center;
+    padding:0%;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    margin: 2%;
 }
 
 .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    font-size: 200px;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     text-align: center;
     color: white;
 }
@@ -93,6 +121,11 @@ body{
     margin: auto;
 }
 
+.backgroundCover {
+    background-color: rgb(40, 40, 40);
+    margin: 1%;
+}
+
 .card-container {
     display:flex;
     justify-content: space-evenly;
@@ -100,19 +133,45 @@ body{
     flex-flow: wrap;
 }
 
-.card-body{
+.card-artist-body {
     justify-content: center;
     flex-direction: column;
-    columns: 1;
-
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(25, 25, 25);
     color: white;
-
-    padding-left: var(--cardBodyPadding);
-    padding-right: var(--cardBodyPadding);
+    padding-left: var(--cardArtistBodyPadding);
+    padding-right: var(--cardArtistBodyPadding);
     margin: 1%;
 }
 
+.card-song-body{
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    background-color: rgb(25, 25, 25);
+    color: white;
+    padding-left: var(--cardSongBodyPadding);
+    padding-right: var(--cardSongBodyPadding);
+    padding-bottom: var(--cardSongBodyPadding);
+    margin: 1%;
+}
+
+.card-artist-body, .card-song-body {
+    box-shadow: rgba(0,0,0,0.1) 0px -10px inset;
+}
+
+.card-artist-image{
+    padding-top: 2%;
+}
+.card-artist-band::before {
+    content: "Band Name: ";
+}
+.card-artist-formed::before {
+    content: "Formed In: ";
+}
+
+.card-album, .card-auth{
+    text-align:center;
+}
 .card-album::before{
     content: "Album: ";
 }
@@ -125,8 +184,7 @@ footer{
     margin: auto;
 }
 
-
-/*-- Mobile and Tablet Only --*/
-@media screen and (max-width: 450px) and (max-height: 800px){
+.smallDisclaimerText {
+    font-size: 10px;
 
 }
